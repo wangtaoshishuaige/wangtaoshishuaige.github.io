@@ -1,19 +1,139 @@
-extends _partial/layout
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Python学习过程</title>
 
-block title
-  title= `${page.title} | ${config.title}`
+  
+  <meta name="author" content="王涛">
+  
 
-block content
-  article.content__post
-    h1.post__title= page.title
-    .post__date= page.date.format(config.date_format)
-    section !{page.content}
-    if page.tags
-      .post__tags
-        for tag in page.tags.toArray()
-          a(href=url_for(tag.path))= tag.name
-  include _partial/paginator_post
+  
+  <meta name="description" content="\1. 基本概念~ URL（Universal Resource Locator） / URI（Universal Resource Identifier）统一资源定位符/统一资源标识符http://www.baidu.com:80/index.html协议   域名或IP地址    端口号 路径 ">
+  
+
+  
+  <meta name="keywords" content="Python">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="Python学习过程">
+
+  
+  <meta property="og:image" content="/blog/favicon.ico">
+  
+
+  <link href="/blog/favicon.ico" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="Python学习过程" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+</head>
 
 
-block comment
-  include _partial/comment
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/blog/">Python学习过程</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/blog/">Home</a></li>
+      
+        <li><a href="/blog/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span></span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2019/06/01/Django安装配置/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-06-01T01:58:29.260Z">
+          2019-06-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>\1. 基本概念<br>~ URL（Universal Resource Locator） / URI（Universal Resource Identifier）<br>统一资源定位符/统一资源标识符<br><img src="file:///C:\Users\ADMINI~1\AppData\Local\Temp\[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="http://www.baidu.com:80/index.html" target="_blank" rel="noopener">http://www.baidu.com:80/index.html</a><br>协议   域名或IP地址    端口号 路径 资源</p>
+<p>HTTP - 超文本传输协议 - Hyper-Text Transfer Protocol - 应用级协议<br>基于TCP提供的可靠传输服务来传递超文本</p>
+<p>HTTP请求报文 - request<br>请求行 - GET /index.html HTTP/1.1<br>请求头 - 键值对<br>空行<br>消息体（浏览器发给服务器的数据）</p>
+<p>HTTP响应报文 - response<br>响应行 - HTTP/1.1 200 OK<br>响应头 - 键值对<br>空行<br>消息体（服务器发给浏览器的数据）</p>
+<p>用Python程序处理来自浏览器的用户请求并生成响应的内容输出到浏览器呈现给用户</p>
+<p>~ DNS（Domain Name System） - 域名系统<br>域名 —解析—&gt; IP地址</p>
+<p>~ 反向代理 - 隐藏真实的服务器，免于将真实的服务器暴露在公网，实施负载均衡<br>Nginx / LVS</p>
+<p>~ Web服务器 - Nginx / Apache - 静态资源</p>
+<p>~ WSGI服务器 - 连接Web服务器和Python程序的桥梁 - uWSGI / Gunicorn<br>Web Server Gateway Interface</p>
+<p>mkdir django1901</p>
+<p>cd django1901</p>
+<p>python3 -m venv venv / python -m venv venv</p>
+<p>source venv/bin/activate / “venv/Scripts/activate”</p>
+<p>pip install django</p>
+<p>django-admin startproject django1901 .</p>
+<p>python <img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF(TYDYECOKVDYB.png" alt="img">manage.py runserver</p>
+<p>vim django1901/<img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF(TYDYECOKVDYB.png" alt="img">settings.py</p>
+<p>LANGUAGE_CODE = ‘zh-hans’<br>TIME_ZONE = ‘Asia/Chongqing’</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2019 王涛
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

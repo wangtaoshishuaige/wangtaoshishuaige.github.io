@@ -1,93 +1,20 @@
-<!DOCTYPE html>
-<html lang=>
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Python">
-  
-    <link rel="icon" href>
-  
-    
-  <title>Archives | Python学习过程</title>
-  <meta name="description" content>
-  <link rel="stylesheet" href="/blog/style.css">
-  <link rel="stylesheet" href="/blog/lib/jquery.fancybox.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+extends _partial/layout
 
-<body>
-  <header>
-  <div class="header-container">
-    <a class="logo" href="/blog/">
-      <span>Python学习过程</span>
-    </a>
-    <ul class="right-header">
-      
-        <li class="nav-item">
-          
-            <a href="/blog/" class="item-link">首页</a>
-          
-        </li>
-      
-        <li class="nav-item">
-          
-            <a href="/blog/about" class="item-link">关于</a>
-          
-        </li>
-      
-        <li class="nav-item">
-          
-            <a href="/blog/archives" class="item-link">归档</a>
-          
-        </li>
-      
-        <li class="nav-item">
-          
-            <a href="/blog/tags" class="item-link">标签</a>
-          
-        </li>
-      
-    </ul>
-  </div>
-</header>
+block title
+  if page.category
+     title= page.category + " | " + config.title
+  if page.tag
+     title= page.tag + " | " + config.title
+  if page.archive
+     title= __('archive') + " | " + config.title
 
-  <main id="archive">
-  <div class="content">
-        
-    
-      <div class="year-list">
-        <h3>2019</h3>
-        <ul>
-          
-            <li>
-              <time>2019/06/01</time>
-              <a href="/blog/2019/06/01/Django安装配置/">
-                <span>
-                    Untitled
-                </span>
-              </a>
-            </li>
-          
-        </ul>
-      </div>
-        
-  </div>
-</main>
-
-  <footer>
-  <div class="copyright">
-    <div>
-      &copy;
-      2019 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
-    </div>
-    <div>
-      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
-    </div>
-  </div>
-</footer>
-
-
-
-</body>
-</html>
+block content
+  .post__achive
+    each posts, year in _.groupBy(page.posts.toArray(), p => - p.date.format('YYYY'))
+      h2= -year
+      ul.achive__list
+        for post in posts
+          li
+            span.achive__item__date= post.date.format('YYYY/MM/DD')
+            a(href=url_for(post.path), title=post.title)= post.title
+  include _partial/paginator

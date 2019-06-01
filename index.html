@@ -1,106 +1,35 @@
-<!DOCTYPE html>
-<html lang=>
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="Python">
-  
-    <link rel="icon" href>
-  
-    
-  <title>Python学习过程</title>
-  <meta name="description" content>
-  <link rel="stylesheet" href="/blog/style.css">
-  <link rel="stylesheet" href="/blog/lib/jquery.fancybox.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+extends _partial/layout
 
-<body>
-  <header>
-  <div class="header-container">
-    <a class="logo" href="/blog/">
-      <span>Python学习过程</span>
-    </a>
-    <ul class="right-header">
-      
-        <li class="nav-item">
-          
-            <a href="/blog/" class="item-link">首页</a>
-          
-        </li>
-      
-        <li class="nav-item">
-          
-            <a href="/blog/about" class="item-link">关于</a>
-          
-        </li>
-      
-        <li class="nav-item">
-          
-            <a href="/blog/archives" class="item-link">归档</a>
-          
-        </li>
-      
-        <li class="nav-item">
-          
-            <a href="/blog/tags" class="item-link">标签</a>
-          
-        </li>
-      
-    </ul>
-  </div>
-</header>
+block title
+  title= `${config.title} | ${config.subtitle}`
 
-  <main id="index">
-  <div class="posts-list">
-    
-    <section>
-      <a href="/blog/2019/06/01/Django安装配置/">
-        <h3 class="post-head">
-          Untitled
-        </h3>
-      </a>
-      
-      <div class="post-content">
-        
-        
-        
-        <p>\1. 基本概念<br>~ URL（Universal Resource Locator） / URI（Universal Resource Identifier）<br>统一资源定位符/统一资源标识符<br><img src="file:///C:\Users\ADMINI~1\AppData\Local\Temp\[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="http://www.baidu.com:80/index.html" target="_blank" rel="noopener">http://www.baidu.com:80/index.html</a><br>协议   域名或IP地址    端口号 路径 资源</p>
-        
-        
-      </div>
-      <div class="post-meta">
-        <i class="fa fa-calendar" aria-hidden="true"></i> <time>
-          2019/06/01</time>
-        
-        
-      </div>
-    </section>
-    
-  </div>
-  <aside>
-    
-    
-    
-    
-  </aside>
-</main>
+block content
+  div.content__index
+    .posts.typo
+      for post in page.posts.toArray()
+          .post
+            h2.post__title
+              a(href=url_for(post.path))
+                = post.title
+            .post__date= post.date.format(config.date_format)
+            if post.description
+              .post__content
+                != post.description
+            else if post.excerpt
+              .post__content
+                != post.excerpt
+            else if post.content
+              - var br = post.content.indexOf('\n')
+              if br < 0
+                .post__content
+                  != post.content
+              else
+                .post__content
+                  != post.content.substring(0, br)
+            if post.tags
+              .post__tags
+                for tag in post.tags.toArray()
+                  a(href=url_for(tag.path))= tag.name
 
-
-  <footer>
-  <div class="copyright">
-    <div>
-      &copy;
-      2019 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
-    </div>
-    <div>
-      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
-    </div>
-  </div>
-</footer>
-
-
-
-</body>
-</html>
+block pagination
+  include _partial/paginator

@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="\1. 基本概念~ URL（Universal Resource Locator） / URI（Universal Resource Identifier）统一资源定位符/统一资源标识符http://www.baidu.com:80/index.html协议   域名或IP地址    端口号 路径 ">
+    
 
     <!--Author-->
     
@@ -40,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2019/3 - Python学习过程</title>
+    <title>Python学习过程</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -127,9 +129,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -137,34 +137,68 @@
     <div class="logo">
         <a href="/blog/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">2019/3</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/blog/2019/04/15/Linux命令/">
-        <span class="archive-date">
-            Apr 2019
-        </span>
-        Untitled
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog/2019/06/01/Django安装配置/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-06-01</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>\1. 基本概念<br>~ URL（Universal Resource Locator） / URI（Universal Resource Identifier）<br>统一资源定位符/统一资源标识符<br><img src="file:///C:\Users\ADMINI~1\AppData\Local\Temp\[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="http://www.baidu.com:80/index.html" target="_blank" rel="noopener">http://www.baidu.com:80/index.html</a><br>协议   域名或IP地址    端口号 路径 资源</p>
+<p>HTTP - 超文本传输协议 - Hyper-Text Transfer Protocol - 应用级协议<br>基于TCP提供的可靠传输服务来传递超文本</p>
+<p>HTTP请求报文 - request<br>请求行 - GET /index.html HTTP/1.1<br>请求头 - 键值对<br>空行<br>消息体（浏览器发给服务器的数据）</p>
+<p>HTTP响应报文 - response<br>响应行 - HTTP/1.1 200 OK<br>响应头 - 键值对<br>空行<br>消息体（服务器发给浏览器的数据）</p>
+<p>用Python程序处理来自浏览器的用户请求并生成响应的内容输出到浏览器呈现给用户</p>
+<p>~ DNS（Domain Name System） - 域名系统<br>域名 —解析—&gt; IP地址</p>
+<p>~ 反向代理 - 隐藏真实的服务器，免于将真实的服务器暴露在公网，实施负载均衡<br>Nginx / LVS</p>
+<p>~ Web服务器 - Nginx / Apache - 静态资源</p>
+<p>~ WSGI服务器 - 连接Web服务器和Python程序的桥梁 - uWSGI / Gunicorn<br>Web Server Gateway Interface</p>
+<p>mkdir django1901</p>
+<p>cd django1901</p>
+<p>python3 -m venv venv / python -m venv venv</p>
+<p>source venv/bin/activate / “venv/Scripts/activate”</p>
+<p>pip install django</p>
+<p>django-admin startproject django1901 .</p>
+<p>python <img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF(TYDYECOKVDYB.png" alt="img">manage.py runserver</p>
+<p>vim django1901/<img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF(TYDYECOKVDYB.png" alt="img">settings.py</p>
+<p>LANGUAGE_CODE = ‘zh-hans’<br>TIME_ZONE = ‘Asia/Chongqing’</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/blog/2019/03/06/博客配置/">
-        <span class="archive-date">
-            Mar 2019
-        </span>
-        Untitled
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
@@ -186,11 +220,7 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/blog/2019/04/15/Linux命令/">Untitled</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/blog/2019/03/06/博客配置/">Untitled</a>
+                <a class="footer-post" href="/blog/2019/06/01/Django安装配置/">Untitled</a>
             </li>
             
         </ul>
